@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nolimitmaliq/Recipe_app/static/css/main.f855e6bc.css",
+    "main.js": "/nolimitmaliq/Recipe_app/static/js/main.bb5c9fd7.js",
+    "static/js/488.06d8b609.chunk.js": "/nolimitmaliq/Recipe_app/static/js/488.06d8b609.chunk.js",
+    "index.html": "/nolimitmaliq/Recipe_app/index.html",
+    "main.f855e6bc.css.map": "/nolimitmaliq/Recipe_app/static/css/main.f855e6bc.css.map",
+    "main.bb5c9fd7.js.map": "/nolimitmaliq/Recipe_app/static/js/main.bb5c9fd7.js.map",
+    "488.06d8b609.chunk.js.map": "/nolimitmaliq/Recipe_app/static/js/488.06d8b609.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.bb5c9fd7.js"
+  ]
+}
