@@ -1,38 +1,61 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.Section_top{
+    width:100%;
+    height:1000px;
+    overflow:hidden;
+    position:relative;
+    background-image: url(Images/image1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-align:center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    animation:change 10s infinite ease-in-out;
+    opacity: .3;
   }
   
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
+  @keyframes change{
+    0%
+    {
+      background-image:url(Images/image1.jpg)
     }
-    to {
-      transform: rotate(360deg);
+    10%
+    {
+      background-image:url(Images/image2.jpg)
+    }
+    20%
+    {
+      background-image:url(Images/image3.jpg)
+    }
+    30%
+    {
+      background-image:url(Images/image4.jpg)
+    }
+    40%
+    {
+      background-image:url(Images/image5.jpg)
+    }
+    50%
+    {
+      background-image:url(Images/image6.jpg)
+    }
+    60%
+    {
+      background-image:url(Images/image7.jpg)
+    }
+    70%
+    {
+      background-image:url(Images/image8.jpg)
+    }
+    80%
+    {
+      background-image:url(Images/image9.jpg)
+    }
+    90%
+    {
+      background-image:url(Images/image10.jpg)
+    }
+    100%
+    {
+      background-image:url(Images/image1.jpg)
     }
   }

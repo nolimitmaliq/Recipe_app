@@ -2,25 +2,13 @@ import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import {Homepage} from './HomePage'
 
 
 function App() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src= "https://shorturl.at/NASJH" className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Homepage />
       </div>
     );
   }
