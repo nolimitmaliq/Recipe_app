@@ -14,8 +14,14 @@ import { Button, Form } from 'react-bootstrap';
 export function Homepage(): JSX.Element{
     return (
         <div className = "Section_top">
-            <div className = "content">
-                hello
+            <div className='header'>
+                <ul>
+                    <li>Home</li>
+                    <li>Build your Perfect Meal</li>
+                    <li>About Me</li>
+                </ul>
+            </div>
+            <div>
             </div>
         </div>
     )
