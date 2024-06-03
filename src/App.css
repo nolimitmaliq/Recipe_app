@@ -1,18 +1,25 @@
 .Section_top{
     width:100%;
-    height:1000px;
+    height:100vh;
     overflow:hidden;
     position:relative;
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75))
-    url(Images/image1.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
+    /* background-image: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),
+    url(Images/image1.jpg); */
+    /* background-position: center;
+    background-repeat: no-repeat; */
     background-size:cover;
-    text-align:center;
-    justify-content: center;
     animation:change 15s infinite ease-in-out;
-    opacity: .3;
   }
+
+  .Section_top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6));
+}
   
   @keyframes change{
     0%
@@ -61,24 +68,31 @@
     }
   }
 
-  .header{
-    width:85%;
-    margin:auto;
+  .header {
+    width: 95%;
+    margin: auto;
     padding: 35px 0;
-    display:flex;
-    align-items: center;
-    justify-content:space-between;
-  }
+    display: flex; /*used for responsive window*/
+    justify-content: flex-end; /*Align items to the right*/
+}
 
-  .header ul li{
-    list-style:none;
-    display:inline-block;
+.header ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap if they don't fit in a single line */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header ul li {
     margin: 0 20px;
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
-    color: black;
-  }
+    color: #ffffff; /* Change text color to white */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    font-size: 18px;
+}
 
   .header ul li::after{
     content: '';
@@ -93,5 +107,24 @@
 
   .header ul li:hover::after{
     width:100%;
+  }
+  .content{
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%); /* makes sure it is centered in the middle of the page*/
+    text-align: center;
+    color:#ffffff;
+    margin:auto;
+  }
+
+  .content h1{
+    font-size: 70px;
+    /* margin-top: 80px; */
+  }
+  .content p{
+    /* margin: 20px auto; */
+    font-weight:100;
+    line-height:35px;
   }
 

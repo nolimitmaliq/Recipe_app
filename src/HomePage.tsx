@@ -21,7 +21,13 @@ export function Homepage(): JSX.Element{
                     <li>About Me</li>
                 </ul>
             </div>
-            <div>
+            <div className = "content" >
+                <h1>
+                    Make Your Perfect Meal
+                </h1>
+                <p>
+                    Build your perfect meal(breakfast, lunch or dinner) with ingrredients by just typing the ingredients you have at home
+                </p>
             </div>
         </div>
     )
