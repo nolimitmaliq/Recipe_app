@@ -12,22 +12,47 @@ import { Button, Form } from 'react-bootstrap';
 // import image9 from "./Images/image9.jpg";
 
 export function Homepage(): JSX.Element{
+    const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
     return (
         <div className = "Section_top">
             <div className='header'>
-                <ul>
+                <button>Home</button>
+                <div className = "dropdown">
+                    <button className='link'>Build your Perfect Meal</button>
+                    <div className = "dropdown-menu">
+                        <ul>
+                            <li>Breakfast</li>
+                            <li>Lunch</li>
+                            <li>Dinner</li>
+                        </ul>
+                    </div>
+                </div>
+                <button>About ME</button>
+
+                {/* <ul>
                     <li>Home</li>
-                    <li>Build your Perfect Meal</li>
+                    <div className = "dropdown">
+                        <li className='link'>Build your Perfect Meal</li>
+                        <div className = "dropdown-menu">
+                            Dropdown Content
+                        </div>
+                    </div>
                     <li>About Me</li>
-                </ul>
+                </ul> */}
             </div>
             <div className = "content" >
-                <h1>
-                    Make Your Perfect Meal
-                </h1>
-                <p>
-                    Build your perfect meal(breakfast, lunch or dinner) with ingrredients by just typing the ingredients you have at home
-                </p>
+                <h1>Make Your Perfect Meal</h1>
+                <p>Build your perfect meal (breakfast, lunch or dinner) <br />
+                with ingredients you have at home</p>
+                <div className = "button">
+                    <button><span></span>BreakFast</button>
+                    <button><span></span>Lunch</button>
+                    <button><span></span>Dinner</button>
+                </div>
             </div>
         </div>
     )
