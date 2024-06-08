@@ -10,19 +10,19 @@ import { Button, Form } from 'react-bootstrap';
 // import image7 from "./Images/image7.jpg";
 // import image8 from "./Images/image8.jpg";
 // import image9 from "./Images/image9.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
 export function Homepage(): JSX.Element{
-    const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
     return (
         <div className = "Section_top">
             <div className='header'>
                 <button>Home</button>
                 <div className = "dropdown">
-                    <button className='link'>Build your Perfect Meal</button>
+                    <button className='link'>
+                        Build your Perfect Meal
+                        <FontAwesomeIcon icon={faAnglesDown} className='icon' />
+                    </button>
                     <div className = "dropdown-menu">
                         <ul>
                             <li>Breakfast</li>

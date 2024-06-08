@@ -25,6 +25,8 @@
   },
   "homepage": "http://localhost:3000/nolimitmaliq/Recipe_ap",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "bootstrap": "^5.3.3",
