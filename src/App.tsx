@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import './HomePage.css';
 import { Button, Form } from 'react-bootstrap';
 import {Homepage} from './HomePage'
 
