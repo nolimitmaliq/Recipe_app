@@ -1,3 +1,19 @@
 .content{
-    top:42%
+    position: relative;
+    top: 45%; 
+    text-align: center;
+}
+
+.Advice{
+    position: relative;
+    width: 80%;
+    border-top: 2px solid antiquewhite; /* Border color can be adjusted */
+    background-color: antiquewhite;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 20px;
+    /* border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px; */
+    margin:0 auto
+
 }
