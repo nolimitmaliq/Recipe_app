@@ -44,13 +44,13 @@ export function Homepage() {
                             <p>Build your perfect meal (breakfast, lunch or dinner) <br />
                                 with ingredients you have at home</p>
                             <div className="button">
-                                <button><span></span>BreakFast</button>
-                                <button><span></span>Lunch</button>
-                                <button><span></span>Dinner</button>
+                                <button onClick={() => setTab("Breakfast")}><span></span>BreakFast</button>
+                                <button onClick={() => setTab("Lunch")}><span></span>Lunch</button>
+                                <button onClick={() => setTab("Dinner")}><span></span>Dinner</button>
                             </div>
                         </>
                     )}
-                    {tab === "Breakfast" && <BreakFast />}
+                    {tab === "Breakfast" && <BreakFast/>}
                     {tab === "Lunch" && <Lunch />}
                     {tab === "Dinner" && <Dinner />}
                     {tab === "about" && <p>About ME Content</p>}
