@@ -108,7 +108,7 @@
   .content{
     width:100%;
     position:absolute;
-    top:50%;
+    top:45%;
     transform: translateY(-50%); /* makes sure it is centered in the middle of the page*/
     text-align: center;
     color:#ffffff;
@@ -133,8 +133,6 @@
     margin-top: 0;
   }
   .button{
-    /* display: flex;
-    justify-content: center;  */
     text-align: center;
   }
 
