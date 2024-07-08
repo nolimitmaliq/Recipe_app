@@ -26,19 +26,23 @@ export function BreakFast(): JSX.Element{
                 <button>Submit Recipe</button>
             </div>
             <div className = "Advice">
-                <h1>Cupnary Advice</h1>
-                <div>Optimize your experience with our design</div>
+                <div className='top'>
+                    <h2 className='row'>hello</h2>
+                    <h2>Culinary Advice</h2>
+                    <h2 className='row'>hello</h2>
+                </div>
+                <div className='subtitle'>Optimize your experience with our design</div>
                 <div className='whiteCard'>
                     <p><span>Be Specific with Ingredients</span>
-                        :pst all the ingredients you have on hand to get the most accurate recipe suggestions.
+                        :   List all the ingredients you have on hand to get the most accurate recipe suggestions.
                         Include quantities if possible to ensure better matching.
                     </p>
                     <p><span>Dietary Preference</span>
-                        :Mention any dietary restrictions or preferences (e.g., vegetarian, gluten-free, low-carb) 
+                        :   Mention any dietary restrictions or preferences (e.g., vegetarian, gluten-free, low-carb) 
                         to receive recipes that fit your needs.
                     </p>
                     <p><span>Explore Different Cuisines</span>
-                        {'    '}:Use the cuisine filter to discover new and exciting recipes from different cultures and regions.
+                        {'    '}:   Use the cuisine filter to discover new and exciting recipes from different cultures and regions.
                     </p>
                     <p><span>Adjust Serving Sizes</span>
                         :Use the serving size feature to scale recipes up 
