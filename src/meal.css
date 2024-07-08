@@ -1,3 +1,64 @@
-.content{
-    top:42%
+.content1{
+    position: relative;
+    top: 80px; 
+    text-align: center;
+}
+
+.Advice{
+    position: relative;
+    width: 50%;
+    border-top: 2px solid antiquewhite; /* Border color can be adjusted */
+    background-color: #fcece4;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left:25%;
+    top:140px;
+}
+.top{
+    font-family:border-box;
+    color:#5a4b34;
+    font-weight: 700;
+    display:flex;
+    justify-content: space-between;
+    padding:0;
+    margin-bottom: 0;
+}
+.top h2{
+    font-size:2.6em;
+}
+.row{
+    background-color: #212529;
+    font-size:.4em;
+    color: transparent;
+    height: 1px;
+    width: 20%;
+
+}
+.subtitle{
+    color: #5a4b34;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    top:14%;
+}
+.whiteCard{
+    margin-top: 15px;
+    background-color: white;
+    font-family: sans-serif;
+    color:#212529 ;
+    border-radius: 15px;
+    width: 90%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding:10px 30px
+
+
+}
+.whiteCard p{
+    font-size: .9em;
+    margin:0 auto;
+    line-height: 1.9;
+}
+.whiteCard span{
+    font-weight: bold;
 }
