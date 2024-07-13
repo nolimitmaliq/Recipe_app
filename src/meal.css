@@ -19,27 +19,27 @@
     color:#5a4b34;
     font-weight: 700;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding:0;
-    margin-bottom: 0;
+    margin-bottom:-30px;
+    width:100%;
 }
 .top h2{
-    font-size:2.6em;
+    font-size:2em;
+    padding-top:0rem
 }
 .row{
     background-color: #212529;
-    font-size:.4em;
     color: transparent;
     height: 1px;
     width: 20%;
-
+    right:40px;
 }
 .subtitle{
     color: #5a4b34;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 1.2em;
-    top:14%;
+    font-size: .9em;
 }
 .whiteCard{
     margin-top: 15px;

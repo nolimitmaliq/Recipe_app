@@ -27,9 +27,9 @@ export function BreakFast(): JSX.Element{
             </div>
             <div className = "Advice">
                 <div className='top'>
-                    <h2 className='row'>hello</h2>
+                    <h2 className='row'></h2>
                     <h2>Culinary Advice</h2>
-                    <h2 className='row'>hello</h2>
+                    <h2 className='row'></h2>
                 </div>
                 <div className='subtitle'>Optimize your experience with our design</div>
                 <div className='whiteCard'>
