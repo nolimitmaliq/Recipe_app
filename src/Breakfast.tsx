@@ -4,6 +4,13 @@ import { Button, Form } from 'react-bootstrap';
 
 export function BreakFast(): JSX.Element{
     const [tab, setTab] = useState<string>("home");
+    const[userResponse, setuserResponse] = useState<string>("");
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setuserResponse(event.target.value)
+    }
+    const handleSubmit = () => {
+        
+    }
     return (
         <div>
             <div className = "content1">
@@ -23,7 +30,7 @@ export function BreakFast(): JSX.Element{
                         }}
                     ></Form.Control>
                 </Form>
-                <button>Submit Recipe</button>
+                <button onClick={handleSubmit}>Submit Recipe</button>
             </div>
             <div className = "Advice">
                 <div className='top'>
