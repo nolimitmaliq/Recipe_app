@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import './meal.css';
 import { Button, Form } from 'react-bootstrap';
+import Chat from './Api';
 
-export function BreakFast(): JSX.Element{
-    const [tab, setTab] = useState<string>("home");
+interface Key {
+    meals:string[];
+    setResponse:(respose:string[]) => void;
+    mealType:string;
+}
+
+export function BreakFast({
+    meals,
+    setResponse,
+    mealType,
+}:Key): JSX.Element{
     const[userResponse, setuserResponse] = useState<string>("");
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setuserResponse(event.target.value)
     }
     const handleSubmit = () => {
-        
+        setResponse([userResponse])
     }
     return (
         <div>
