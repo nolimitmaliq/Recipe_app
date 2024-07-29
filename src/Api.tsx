@@ -46,7 +46,7 @@ export default function Chat({
                   content: `This is what I want: ${userResponse}`,
                 },
               ],
-              model: "gpt-4",
+              model: "gpt-4o",
             });
     
             // Extracting the result from API

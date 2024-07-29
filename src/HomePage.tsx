@@ -19,7 +19,7 @@ export function Homepage() {
     const [meals, setMeals] = useState<string[]>([]);
     const [response, setResponse] = useState<string[]>([]);
     let keyData = "";
-    const saveKeyData = "MYKEY";
+    const saveKeyData = "KEY";
     const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
     if (prevKey !== null) {
         keyData = JSON.parse(prevKey);
@@ -77,6 +77,25 @@ export function Homepage() {
                     {tab === "Lunch" && <Lunch />}
                     {tab === "Dinner" && <Dinner />}
                     {tab === "about" && <p>About ME Content</p>}
+                    </div>
+                    <div className="api-container">
+                        <Form className = "API">
+                            <Form.Control
+                                type = "password"
+                                placeholder='Insert API Key'
+                                onChange={changeKey}
+                                value = {key}
+                                style ={{
+                                    border:"none",
+                                    appearance:'none',
+                                    background:'#f2f2f2',
+                                    padding: '12px',
+                                    borderRadius:'3px',
+                                    width:'250px',
+                                    outline:'none'
+                                }} >
+                            </Form.Control>
+                        </Form>
                 </div>
             </div>
         </div>
