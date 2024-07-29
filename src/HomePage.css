@@ -221,12 +221,21 @@
     color:#ffff00;
     text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8); /* Add stronger text shadow */
   }
-  .API {
+  .api-container {
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    font-size:14px;
+    padding-top:20px;
+    
+
+}
+  /* .API {
     margin-top:35%;
     margin-left:5%;
     z-index: -1;
 
-  }
+  } */
   /* Responsive */
   /* @media all and (max-width: 2000px) {
     .content {

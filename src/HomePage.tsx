@@ -77,27 +77,26 @@ export function Homepage() {
                     {tab === "Lunch" && <Lunch />}
                     {tab === "Dinner" && <Dinner />}
                     {tab === "about" && <p>About ME Content</p>}
+                    </div>
+                    <div className="api-container">
+                        <Form className = "API">
+                            <Form.Control
+                                type = "password"
+                                placeholder='Insert API Key'
+                                onChange={changeKey}
+                                value = {key}
+                                style ={{
+                                    border:"none",
+                                    appearance:'none',
+                                    background:'#f2f2f2',
+                                    padding: '12px',
+                                    borderRadius:'3px',
+                                    width:'250px',
+                                    outline:'none'
+                                }} >
+                            </Form.Control>
+                        </Form>
                 </div>
-            <Form className = "API">
-                <Form.Label>API Key: </Form.Label>
-                <Form.Control
-                    type = "password"
-                    placeholder='Insert API Key'
-                    onChange={changeKey}
-                    value = {key}
-                    style ={{
-                        border:"none",
-                        appearance:'none',
-                        background:'#f2f2f2',
-                        padding: '12px',
-                        borderRadius:'3px',
-                        width:'250px',
-                        outline:'none'
-
-
-                    }} >
-                </Form.Control>
-            </Form>
             </div>
         </div>
     );
