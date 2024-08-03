@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { OpenAI } from "openai";
 
-let API_KEY = localStorage.getItem("MYKEY");
+let API_KEY = localStorage.getItem("KEY");
 let key = "";
 if (API_KEY !== null) {
   key = JSON.parse(API_KEY);
@@ -33,7 +33,7 @@ export default function Chat({
                   role: "system",
                   content: `I created a website to inspire and assist people in cooking. 
                   The site aims to provide three meal options based on the ingredients and 
-                  cuisine preferences that users input. Each meal suggestion includes a 
+                  cuisine preferences that users input. Each meal suggestion should include a 
                   detailed step-by-step recipe, substitutes for any ingredients users might not have, 
                   and an embedded YouTube video tutorial, if available. Additionally, if users specify a 
                   particular type of meal, the site will present the most convenient recipe matching their input. 

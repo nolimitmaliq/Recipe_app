@@ -15,11 +15,21 @@ export function BreakFast({
     mealType,
 }:Key): JSX.Element{
     const[userResponse, setuserResponse] = useState<string>("");
+    const[errorMessage, setErrorMessage] = useState<string>("")
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setuserResponse(event.target.value)
     }
     const handleSubmit = () => {
         setResponse([userResponse])
+    }
+    // disable the submit button
+    const disabled = () =>{
+        if (userResponse.length <= 15){
+            setErrorMessage("More Information Please for better result")
+        }
+        else{
+            handleSubmit()
+        }
     }
     return (
         <div>
@@ -36,12 +46,18 @@ export function BreakFast({
                         borderRadius:"30px",
                         textAlign:"center",
                         alignContent:"center"
-                
                         }}
+                        value = {userResponse}
+                        onChange={handleInputChange}
                     ></Form.Control>
                 </Form>
-                <button onClick={handleSubmit}>Submit Recipe</button>
+                <button onClick={disabled}>Submit</button>
             </div>
+            <Chat
+            userResponse={userResponse}
+            meals = {meals}
+            setResponse={setResponse}
+            mealType='Breakfast'></Chat>
             <div className = "Advice">
                 <div className='top'>
                     <h2 className='row'></h2>

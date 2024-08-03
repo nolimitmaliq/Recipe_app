@@ -77,26 +77,33 @@ export function Homepage() {
                     {tab === "Lunch" && <Lunch />}
                     {tab === "Dinner" && <Dinner />}
                     {tab === "about" && <p>About ME Content</p>}
-                    </div>
-                    <div className="api-container">
-                        <Form className = "API">
-                            <Form.Control
-                                type = "password"
-                                placeholder='Insert API Key'
-                                onChange={changeKey}
-                                value = {key}
-                                style ={{
-                                    border:"none",
-                                    appearance:'none',
-                                    background:'#f2f2f2',
-                                    padding: '12px',
-                                    borderRadius:'3px',
-                                    width:'250px',
-                                    outline:'none'
-                                }} >
-                            </Form.Control>
-                        </Form>
                 </div>
+                <div className='api-container'>
+                    <label className='custom-field'>
+                        <input type = "password" required onChange={changeKey}></input>
+                        <span className = "placeholder">Insert API key</span>
+                    </label>
+                    <button onClick={handleSubmit}><span>submit</span></button>
+                </div>
+                {/* <div className="api-container">
+                    <Form className = "API">
+                        <Form.Control
+                            type = "password"
+                            placeholder='Insert API Key'
+                            onChange={changeKey}
+                            value = {key}
+                            style ={{
+                                border:"none",
+                                appearance:'none',
+                                background:'#f2f2f2',
+                                padding: '12px',
+                                borderRadius:'3px',
+                                width:'250px',
+                                outline:'none'
+                            }} >
+                        </Form.Control>
+                    </Form>
+                </div> */}
             </div>
         </div>
     );
