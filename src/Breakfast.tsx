@@ -1,91 +1,98 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './meal.css';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import Chat from './Api';
+import { ClipLoader } from "react-spinners";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
 
 interface Key {
-    meals:string[];
-    setResponse:(respose:string[]) => void;
-    mealType:string;
+    setResult: (result: string[]) => void;
+    mealType: string;
+    meals: string[];
 }
 
 export function BreakFast({
-    meals,
-    setResponse,
+    setResult,
     mealType,
-}:Key): JSX.Element{
-    const[userResponse, setuserResponse] = useState<string>("");
-    const[errorMessage, setErrorMessage] = useState<string>("")
+    meals
+}: Key): JSX.Element {
+    const [userResponse, setUserResponse] = useState<string>("");
+    const [errorMessage, setErrorMessage] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false); // Manage loading state here
+    const [submitted, setSubmitted] = useState<boolean>(false);
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setuserResponse(event.target.value)
-    }
+        setUserResponse(event.target.value);
+    };
+    // console.log(`${userResponse}`)
+
     const handleSubmit = () => {
-        setResponse([userResponse])
-    }
-    // disable the submit button
-    const disabled = () =>{
-        if (userResponse.length <= 15){
-            setErrorMessage("More Information Please for better result")
+        console.log("I am in handle Submit")
+        // setLoading(true);
+        setSubmitted(true);
+    };
+
+    const disabled = () => {
+        if (userResponse.length <= 15) {
+            setErrorMessage("More Information Please for better result");
+        } else {
+            console.log("I am in disabled funtion");
+            setErrorMessage("");
+            handleSubmit();
         }
-        else{
-            handleSubmit()
+    };
+    useEffect(() => {
+        if (!loading && submitted) {
+          setSubmitted(false);
         }
-    }
+      }, [loading, submitted]);
+
     return (
         <div>
-            <div className = "content1">
+            <div className="content1">
                 <h1>Generate A Breakfast Meal</h1>
                 <Form>
                     <Form.Group controlId='Breakfast'></Form.Group>
                     <Form.Control
-                        as = "textarea"
+                        as="textarea"
                         placeholder='Generate a Breakfast Recipe...'
-                        style = {{
-                        width :"1000px",
-                        height:"60px",
-                        borderRadius:"30px",
-                        textAlign:"center",
-                        alignContent:"center"
+                        style={{
+                            width: "1000px",
+                            height: "60px",
+                            borderRadius: "30px",
+                            textAlign: "center",
+                            alignContent: "center",
                         }}
-                        value = {userResponse}
+                        value={userResponse}
                         onChange={handleInputChange}
                     ></Form.Control>
                 </Form>
                 <button onClick={disabled}>Submit</button>
+                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             </div>
-            <Chat
-            userResponse={userResponse}
-            meals = {meals}
-            setResponse={setResponse}
-            mealType='Breakfast'></Chat>
-            <div className = "Advice">
-                <div className='top'>
-                    <h2 className='row'></h2>
-                    <h2>Culinary Advice</h2>
-                    <h2 className='row'></h2>
+            {loading ? (
+                <div id="loading-spinner" className="loading">
+                    <ClipLoader color="white" loading={loading} size={250} />
+                    <FontAwesomeIcon icon={faBowlFood} className="foodIcon" />
                 </div>
-                <div className='subtitle'>Optimize your experience with our design</div>
-                <div className='whiteCard'>
-                    <p><span>Be Specific with Ingredients</span>
-                        :   List all the ingredients you have on hand to get the most accurate recipe suggestions.
-                        Include quantities if possible to ensure better matching.
-                    </p>
-                    <p><span>Dietary Preference</span>
-                        :   Mention any dietary restrictions or preferences (e.g., vegetarian, gluten-free, low-carb) 
-                        to receive recipes that fit your needs.
-                    </p>
-                    <p><span>Explore Different Cuisines</span>
-                        {'    '}:   Use the cuisine filter to discover new and exciting recipes from different cultures and regions.
-                    </p>
-                    <p><span>Adjust Serving Sizes</span>
-                        :Use the serving size feature to scale recipes up 
-                        or down based on the number of people you are cooking for. 
-                    </p>
-                    <p><span>Save Your Favorites</span>
-                        :Bookmark or save your favorite recipes for easy access and future reference.
-                    </p>    
+            ) : (
+                submitted && (
+                    <Chat
+                        userResponse={userResponse}
+                        setResult={setResult}
+                        mealType={mealType}
+                        setLoading={setLoading} // Pass setLoading to Chat
+                    />
+                )
+            )}
+            {meals.length > 0 && (
+                <div>
+                    {meals.map((meal, index) => (
+                        <div key={index}>{meal}</div>
+                    ))}
                 </div>
-            </div>
+            )}
         </div>
-    )
+    );
 }

@@ -17,7 +17,6 @@ import { Lunch } from './Lunch';
 import { Dinner } from './Dinner';
 export function Homepage() {
     const [meals, setMeals] = useState<string[]>([]);
-    const [response, setResponse] = useState<string[]>([]);
     let keyData = "";
     const saveKeyData = "KEY";
     const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
@@ -72,7 +71,7 @@ export function Homepage() {
                     )}
                     {tab === "Breakfast" && <BreakFast
                     meals={meals}
-                    setResponse={setResponse}
+                    setResult={setMeals}
                     mealType='breakfast'/>}
                     {tab === "Lunch" && <Lunch />}
                     {tab === "Dinner" && <Dinner />}
