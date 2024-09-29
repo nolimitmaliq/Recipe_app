@@ -223,12 +223,8 @@
   }
   .api-container {
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
     right: 2%;
-    font-size:14px;
-    padding-top:20px;
-    
-
 }
   /* .API {
     margin-top:35%;
@@ -245,6 +241,69 @@
       font-size: 55px;
     }
 } */
+
+.custom-field {
+  position: relative;
+  font-size:14px;
+  padding-top:20px;
+  margin-bottom: 2px;
+}
+
+.custom-field input {
+  border:none;
+  background: #f2f2f2;
+  padding: 12px;
+  border-radius:3px;
+  width:250px;
+  outline: none;
+}
+.api-container button{
+  margin-left: 15px;}
+  /* background: transparent;
+  color: #ffffff;
+  width:100px;
+  cursor: pointer;
+  padding:15px;
+  border-radius: 25px;
+  margin: 20px 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px solid #009688;
+  font-size: larger;
+  position: relative;
+  overflow:hidden;
+  }
+.api-container button span{
+  background:#009688;
+  height:100%;
+  width:0;
+  border-radius:25px;
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: .5s;
+  }
+.api-container button:hover span{
+  width:100%;
+}
+.api-container button:hover{
+  border: none;
+} */
+
+.custom-field .placeholder {
+  position: absolute;
+  left:12px;
+  top: calc(50%);
+  /* transform: translate(-50%); */
+  color:#aaa;
+  transition: top .3s ease, font-size .3s ease, color .3s ease;
+}
+.custom-field input:focus + .placeholder{
+  top:10px;
+  font-size: 10px;
+  color: #222;
+}
 
 @media all and (max-width: 900px) {
   .content h1 {
