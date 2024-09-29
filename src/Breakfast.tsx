@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
 
 interface Key {
-    setResult: (result: string[]) => void;
-    mealType: string;
-    meals: string[];
+    setResult: (result: string[]) => void; //function that holds the result from the API
+    mealType: string; // type of meal the user wants whether it is breakfast lunch or dinner.
+    meals: string[]; // holds the actual meal suggestions or recipes generated
 }
 
 export function BreakFast({
@@ -81,7 +81,7 @@ export function BreakFast({
                     <Chat
                         userResponse={userResponse}
                         setResult={setResult}
-                        mealType={mealType}
+                        mealType='Breakfast'
                         setLoading={setLoading} // Pass setLoading to Chat
                     />
                 )
