@@ -15,6 +15,7 @@ interface Key {
     setResult:(response:string[]) => void
     mealType:string
     setLoading: (loading: boolean) => void;
+    meals: string[];
 }
 
 export default function Chat({
@@ -23,6 +24,7 @@ export default function Chat({
     setResult,
     mealType,
     setLoading,
+    meals
 }:Key){
     useEffect(() => {
        async function getResponse() {
