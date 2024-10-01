@@ -15,8 +15,13 @@ import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 import { BreakFast } from './Breakfast';
 import { Lunch } from './Lunch';
 import { Dinner } from './Dinner';
+interface recipe {
+    recipeName: string;
+    recipeInstruction: string;
+    recipeVideoLink: string;
+  }
 export function Homepage() {
-    const [meals, setMeals] = useState<string[]>([]);
+    const [meals, setMeals] = useState<recipe[]>([]);
     let keyData = "";
     const saveKeyData = "KEY";
     const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
