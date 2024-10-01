@@ -7,10 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
 import { Results } from './result'; // Import your Results component
 
+interface recipe {
+    recipeName: string;
+    recipeInstruction: string;
+    recipeVideoLink: string;
+  }
 interface Key {
-    setResult: (result: string[]) => void; // function that holds the result from the API
+    setResult: (result: recipe[]) => void; // function that holds the result from the API
     mealType: string; // type of meal the user wants whether it is breakfast, lunch, or dinner.
-    meals: string[]; // holds the actual meal suggestions or recipes generated
+    meals: recipe[]; // holds the actual meal suggestions or recipes generated
 }
 
 export function BreakFast({
@@ -43,10 +48,6 @@ export function BreakFast({
             handleSubmit();
         }
     };
-
-    const print = (i:string[]) => {
-        console.log(i)
-    }
     useEffect(() => {
         if (!loading && submitted) {
             setSubmitted(false);
@@ -93,13 +94,11 @@ export function BreakFast({
                 )}
             </div>
             <Results meals={meals}/>
-        {meals.length > 0 && activeTab === "input" && ( // Render meals only if input tab is active
-            <div>
+            {/* <div>
                 {meals.map((meal, index) => (
                     <div key={index}>{meal}</div>
                 ))}
-            </div>
-            )}
+            </div> */}
         </div>
     );
 }

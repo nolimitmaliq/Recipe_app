@@ -9,13 +9,18 @@ if (API_KEY !== null) {
 
 const openai= new OpenAI({apiKey:key, dangerouslyAllowBrowser:true });
 
+interface recipe {
+  recipeName: string;
+  recipeInstruction: string;
+  recipeVideoLink: string;
+}
 interface Key {
     userResponse: string
     // cuisine: string
-    setResult:(response:string[]) => void
+    setResult:(response:recipe[]) => void
     mealType:string
     setLoading: (loading: boolean) => void;
-    meals: string[];
+    meals: recipe[];
 }
 
 export default function Chat({
@@ -34,34 +39,38 @@ export default function Chat({
             messages: [
               {
                 role: "system",
-                content: `I created a website to inspire and assist people in cooking. 
-                The site aims to provide three meal options based on the ingredients and 
-                cuisine preferences that users input. Each meal suggestion should include a 
-                detailed step-by-step recipe, substitutes for any ingredients users might not have, 
-                and an embedded YouTube video tutorial, if available. Additionally, if users specify a 
-                particular type of meal, the site will present the most convenient recipe matching their input. 
-                Users can also input their dietary restrictions, which will be considered to ensure the 
-                recipes are suitable for them.
-                Also, the result of the meal should depend on what mealType which is passed as a prop`,
+                content: `I created a website to inspire and assist people in cooking.
+                    The site aims to provide EXACTLY THREE MEALS options based on the ingredients and 
+                    cuisine preferences that users input. Each meal suggestion should include:
+                    - 'recipeName': the name of the meal
+                    - 'recipeInstruction': a detailed step-by-step recipe
+                    - 'recipeVideoLink': a link to a YouTube video tutorial (if available). 
+                    Ensure the response is valid JSON and avoid conversational responses.`
               },
               {
                 role: "user",
                 content: `This is what I want: ${userResponse}`,
               },
             ],
-            model: "gpt-4",
+            model: "gpt-4o",
           });
           console.log("hello");
 
           // Extracting the result from API
-          const response = completion.choices[0].message.content;
-          let result : string[] = []
-          if (response !== null) {
-            result = response.split("\n");
+          let response = completion.choices[0].message.content;
+          let parsedResponse
+          if (response != null){
+            response = response.replace(/```json|```/g, '');
+            try {
+              parsedResponse = JSON.parse(response);
+            } catch (jsonError) {
+              console.error("Error parsing JSON:", jsonError);
+              console.log("Raw response:", response);
+              return; // Exit if the response is not valid JSON
+            }
           }
-
-          setResult(result);
-          console.log(result);
+          setResult(parsedResponse);
+          console.log(parsedResponse);
         } catch (error) {
           console.error("Error fetching response:", error);
         } 
