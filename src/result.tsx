@@ -22,11 +22,14 @@ export function Results({meals}: ResultsProps) : JSX.Element {
         let link = ""
         const newResults: recipe[] = []
         meals.forEach((meal) => {
+            console.log({meal})
             if(meal.trim() === "") { // this is a way for us to check if we reached the end of a recipe group
-                if (name && instruction){
-                    const newRecipe : recipe = {recipeName: name, recipeInstruction: instruction, recipeVideoLink:link }
-                    newResults.push(newRecipe)
+                const newRecipe : recipe = {
+                    recipeName: name, 
+                    recipeInstruction: instruction, 
+                    recipeVideoLink:link 
                 }
+                newResults.push(newRecipe)
                 name = ""
                 instruction = ""
                 link = ""
@@ -51,8 +54,11 @@ export function Results({meals}: ResultsProps) : JSX.Element {
         setResults(newResults)
     }
     useEffect(() => {
-        show()
+        if(meals.length > 0){
+            show()
+        }
     }, [meals]);
+    console.log("did you enter the show function?")
     console.log({result})
     return (
         <div>

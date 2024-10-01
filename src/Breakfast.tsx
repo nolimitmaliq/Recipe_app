@@ -44,10 +44,9 @@ export function BreakFast({
         }
     };
 
-    function print(){
-        console.log("I am passed the chat function")
+    const print = (i:string[]) => {
+        console.log(i)
     }
-
     useEffect(() => {
         if (!loading && submitted) {
             setSubmitted(false);
@@ -56,54 +55,50 @@ export function BreakFast({
 
     return (
         <div>
-            {activeTab === "input" ? ( // Conditionally render based on activeTab
-                <div className="content1">
-                    <h1>Generate A Breakfast Meal</h1>
-                    <Form>
-                        <Form.Group controlId='Breakfast'></Form.Group>
-                        <Form.Control
-                            as="textarea"
-                            placeholder='Generate a Breakfast Recipe...'
-                            style={{
-                                width: "1000px",
-                                height: "60px",
-                                borderRadius: "30px",
-                                textAlign: "center",
-                                alignContent: "center",
-                            }}
-                            value={userResponse}
-                            onChange={handleInputChange}
-                        ></Form.Control>
-                    </Form>
-                    <button onClick={disabled}>Submit</button>
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-                    {loading ? (
-                        <div id="loading-spinner" className="loading">
-                            <ClipLoader color="white" loading={loading} size={250} />
-                            <FontAwesomeIcon icon={faBowlFood} className="foodIcon" />
-                        </div>
-                    ) : (
-                        submitted && (
-                            <Chat
-                                userResponse={userResponse}
-                                setResult={setResult}
-                                mealType='Breakfast'
-                                setLoading={setLoading} // Pass setLoading to Chat
-                                meals={meals}
-                            />
-                        )
-                    )}
-                </div>
-            ) : (
-                // Show results tab content
-                <Results meals={meals}/>
-            )}
-            {meals.length > 0 && activeTab === "input" && ( // Render meals only if input tab is active
-                <div>
-                    {meals.map((meal, index) => (
-                        <div key={index}>{meal}</div>
-                    ))}
-                </div>
+            <div className="content1">
+                <h1>Generate A Breakfast Meal</h1>
+                <Form>
+                    <Form.Group controlId='Breakfast'></Form.Group>
+                    <Form.Control
+                        as="textarea"
+                        placeholder='Generate a Breakfast Recipe...'
+                        style={{
+                        width: "1000px",
+                        height: "60px",
+                        borderRadius: "30px",
+                        textAlign: "center",
+                        alignContent: "center",
+                        }}
+                        value={userResponse}
+                        onChange={handleInputChange}
+                    ></Form.Control>
+                </Form>
+                <button onClick={disabled}>Submit</button>
+                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                {loading ? (
+                    <div id="loading-spinner" className="loading">
+                        <ClipLoader color="white" loading={loading} size={250} />
+                        <FontAwesomeIcon icon={faBowlFood} className="foodIcon" />
+                    </div>
+                ) : (
+                    submitted && (
+                        <Chat
+                            userResponse={userResponse}
+                            setResult={setResult}
+                            mealType='Breakfast'
+                            setLoading={setLoading} // Pass setLoading to Chat
+                            meals={meals}
+                        />
+                    )
+                )}
+            </div>
+            <Results meals={meals}/>
+        {meals.length > 0 && activeTab === "input" && ( // Render meals only if input tab is active
+            <div>
+                {meals.map((meal, index) => (
+                    <div key={index}>{meal}</div>
+                ))}
+            </div>
             )}
         </div>
     );
