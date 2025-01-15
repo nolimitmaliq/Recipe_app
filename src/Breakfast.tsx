@@ -82,7 +82,7 @@ export function BreakFast({
                         <FontAwesomeIcon icon={faBowlFood} className="foodIcon" />
                     </div>
                 ) : (
-                    submitted && (
+                    submitted  && (
                         <Chat
                             userResponse={userResponse}
                             setResult={setResult}
